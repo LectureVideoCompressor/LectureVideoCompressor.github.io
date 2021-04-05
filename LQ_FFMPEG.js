@@ -17,9 +17,8 @@ const transcode = async ({ target: { files }  }) => {
   message.innerHTML = 'Complete transcoding';
   const data = ffmpeg.FS('readFile', 'output.mp4');
  
-  const video = document.getElementById('output-video');
   video.src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
-  
+  document.getElementById("download_button_lq").style.display = "";
+  document.getElementById("download_button_lq").href = video.src;
 }
 document.getElementById('uploader_lq').addEventListener('change', transcode);
-document.getElementById("download_button_lq").style.display = "none";
