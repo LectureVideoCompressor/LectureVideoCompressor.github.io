@@ -55,6 +55,7 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
+        <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.9.6/dist/ffmpeg.min.js"></script>
         <p class="u-text u-text-1">Lecture Video Compressor<br>Ders Videosu Küçültücü<br>
         </p>
       </div></header>
@@ -83,14 +84,18 @@
                     <div class="u-layout-row">
                       <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-13 u-layout-cell-1">
                         <div class="u-container-layout u-valign-top-xl u-container-layout-2">
-                          <h3 class="u-text u-text-1">Select a File<br>Dosya Seçin<br>
+                          <h3 class="u-text u-text-1" id="message_lq">Select a File<br>Dosya Seçin<br>
                           </h3>
                         </div>
                       </div>
                       <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-47 u-layout-cell-2">
                         <div class="u-container-layout u-valign-top-xl u-container-layout-3">
-                          <a href="#" class="u-btn u-button-style u-palette-1-light-1 u-btn-1">File/Dosya<br>
+                          <input type="file" id="uploader_lq" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;" />
+                          <input type="button" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" value="File/Dosya" onclick="document.getElementById('uploader_lq').click();" />
+                        
+                          <a href="#" id="download_button_lq"class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;">İndirmek için tıkla<br>
                           </a>
+                          <script src="LQ_FFMPEG.js"></script>
                         </div>
                       </div>
                     </div>
@@ -111,7 +116,12 @@
                       </div>
                       <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-47 u-layout-cell-4">
                         <div class="u-container-layout u-valign-top-xl u-container-layout-6">
-                          <a href="#" class="u-btn u-button-style u-palette-1-light-1 u-btn-2">File/Dosya</a>
+                          <input type="file" id="uploader_hq" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;" />
+                          <input type="button" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" value="File/Dosya" onclick="document.getElementById('uploader_hq').click();" />
+                        
+                          <a href="#" id="download_button_hq"class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;">İndirmek için tıkla<br>
+                          </a>
+                          <script src="HQ_FFMPEG.js"></script>
                         </div>
                       </div>
                     </div>
@@ -132,7 +142,12 @@
                       </div>
                       <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-47 u-layout-cell-6">
                         <div class="u-container-layout u-valign-top-xl u-container-layout-9">
-                          <a href="#" class="u-btn u-button-style u-palette-1-light-1 u-btn-3">File/Dosya</a>
+                          <input type="file" id="uploader_cs" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;" />
+                          <input type="button" class="u-btn u-button-style u-palette-1-light-1 u-btn-1" value="File/Dosya" onclick="document.getElementById('uploader_cs').click();" />
+                        
+                          <a href="#" id="download_button_cs"class="u-btn u-button-style u-palette-1-light-1 u-btn-1" style="display: none;">İndirmek için tıkla<br>
+                          </a>
+                          <script src="Custom_FFMPEG.js"></script>
                         </div>
                       </div>
                     </div>

@@ -1,4 +1,4 @@
-const message = document.getElementById('message');
+const message = document.getElementById('message_lq');
 const { createFFmpeg, fetchFile } = FFmpeg;
 const ffmpeg = createFFmpeg({
   log: true,
@@ -19,6 +19,7 @@ const transcode = async ({ target: { files }  }) => {
  
   const video = document.getElementById('output-video');
   video.src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
-  window.location = video.src;
+  
 }
-document.getElementById('uploader').addEventListener('change', transcode);
+document.getElementById('uploader_lq').addEventListener('change', transcode);
+document.getElementById("download_button_lq").style.display = "none";
