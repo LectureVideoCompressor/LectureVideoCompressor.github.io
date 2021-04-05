@@ -18,7 +18,7 @@ const transcode = async ({ target: { files }  }) => {
   const data = ffmpeg.FS('readFile', 'output.mp4');
  
   video.src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
-  document.getElementById("download_button_lq").style.display = "";
+  document.getElementById("download_button_lq").style.display = "block";
   document.getElementById("download_button_lq").href = video.src;
 }
 document.getElementById('uploader_lq').addEventListener('change', transcode);
