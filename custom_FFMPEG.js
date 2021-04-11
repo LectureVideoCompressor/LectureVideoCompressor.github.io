@@ -1,13 +1,14 @@
-const message = document.getElementById('message_cs');
-const { createFFmpeg, fetchFile } = FFmpeg;
-const ffmpeg = createFFmpeg({
+
+
+const transcode_cs = async ({ target: { files }  }) => {
+  const message = document.getElementById('message_cs');
+  const { createFFmpeg, fetchFile } = FFmpeg;
+  const ffmpeg = createFFmpeg({
   log: true,
   progress: ({ ratio }) => {
     message.innerHTML = `Complete: ${(ratio * 100.0).toFixed(2)}%`;
   },
-});
-
-const transcode = async ({ target: { files }  }) => {
+  });
   const { name } = files[0];
   message.innerHTML = 'Loading ffmpeg-core.js';
   await ffmpeg.load();
@@ -21,4 +22,4 @@ const transcode = async ({ target: { files }  }) => {
   document.getElementById("download_button_cs").style.display = "block";
   document.getElementById("download_button_cs").href = src;
 }
-document.getElementById('uploader_cs').addEventListener('change', transcode);
+document.getElementById('uploader_cs').addEventListener('change', transcode_cs);
