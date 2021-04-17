@@ -19,10 +19,11 @@ const transcode_lq = async ({ target: { files }  }) => {
   ffmpeg.FS('writeFile', name, await fetchFile(files[0]));
   await ffmpeg.run('-i', name, "-crf", "28", "-r", "24", "-ac", "1", "-q:a", "0.85", outputName); 
   message.innerHTML = 'Complete transcoding';
-  const data = ffmpeg.FS('readFile', outputName);
+  const data = ffmpeg.FS('readFile', outputName);  
+  const src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
   
-  //const src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
   document.getElementById("download_button_lq").style.display = "block";
   document.getElementById("download_button_lq").download = outputName;
+  document.getElementById("download_button_lq").href=src;
 }
 document.getElementById('uploader_lq').addEventListener('change', transcode_lq);
